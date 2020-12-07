@@ -15,7 +15,7 @@ protected:
   DayBase(int num);
   virtual ~DayBase() = default;
 
-  std::vector<std::string> tokenize(const std::string str, const std::regex re);
+  std::vector<std::string> tokenize(const std::string str, const std::regex re) const;
 
 public:
   virtual void run() = 0;

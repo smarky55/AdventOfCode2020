@@ -17,7 +17,7 @@ DayBase::DayBase(int num) {
  */
 std::vector<std::string> DayBase::tokenize(
   const std::string str,
-  const std::regex re) {
+  const std::regex re) const {
   std::sregex_token_iterator it{str.begin(),
                            str.end(), re, -1};
   std::vector<std::string> tokenized{it, {}};
