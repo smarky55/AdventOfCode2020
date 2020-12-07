@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-class Day2 : public Day{
+class Day2 : public Day {
 public:
   Day2();
 

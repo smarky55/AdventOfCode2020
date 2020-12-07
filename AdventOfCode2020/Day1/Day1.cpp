@@ -1,8 +1,5 @@
 #include "Day1.h"
 
-#include <iostream>
-#include <fstream>
-
 static Day1 s_day{};
 
 Day1::Day1() :Day(1) {}

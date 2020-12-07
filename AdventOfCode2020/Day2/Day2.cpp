@@ -1,7 +1,5 @@
 #include "Day2.h"
 
-#include <iostream>
-#include <fstream>
 #include <regex>
 
 static Day2 s_day{};
