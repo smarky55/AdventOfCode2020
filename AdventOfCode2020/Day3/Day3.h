@@ -1,27 +1,27 @@
 #pragma once
 
 #include <Core/Day.h>
-class Day3 : public Day {
+
+struct Map {
+  int width;
+  int height;
+  std::vector<std::vector<bool>> myMap;
+
+  bool getPoint(int x, int y) const;
+};
+
+class Day3 : public Day<Map> {
 public:
   Day3();
 
-  void run() override;
-
 private:
-  struct Map {
-    int width;
-    int height;
-    std::vector<std::vector<bool>> myMap;
 
-    bool getPoint(int x, int y) const;
-  };
+  Map testCase() override;
 
-  Map testCase();
+  Map readInput() override;
 
-  Map readInput();
-
-  int part1(const Map& input);
-  long long part2(const Map& input);
+  uint64_t part1(const Map& input) override;
+  uint64_t part2(const Map& input) override;
 
   int countTrees(const Map& input, int stepx, int stepy);
 };

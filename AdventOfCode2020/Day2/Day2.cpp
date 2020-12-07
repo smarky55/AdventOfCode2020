@@ -4,7 +4,7 @@
 
 static Day2 s_day{};
 
-Day2::Day2() : Day(2) {}
+Day2::Day2() : DayBase(2) {}
 
 void Day2::run() {
   std::cout << "Part 1" << std::endl;

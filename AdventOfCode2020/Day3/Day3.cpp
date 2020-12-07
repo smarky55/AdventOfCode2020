@@ -2,31 +2,9 @@
 
 static Day3 s_day{};
 
-Day3::Day3() : Day(3) {}
+Day3::Day3() : Day(3, 7, 336) {}
 
-void Day3::run() {
-  std::cout << "Part 1" << std::endl;
-  if (part1(testCase()) != 7) {
-    std::cout << "Test case failed" << std::endl;
-    return;
-  } else {
-    std::cout << "Test case passed!" << std::endl;
-  }
-
-  std::cout << "Answer: " << part1(readInput()) << std::endl;
-
-  std::cout << "Part 2" << std::endl;
-  if (part2(testCase()) != 336) {
-    std::cout << "Test case failed" << std::endl;
-    return;
-  } else {
-    std::cout << "Test case passed!" << std::endl;
-  }
-
-  std::cout << "Answer: " << part2(readInput()) << std::endl;
-}
-
-Day3::Map Day3::testCase() {
+Map Day3::testCase() {
   std::vector<std::string> input{
     "..##.......",
     "#...#...#..",
@@ -53,7 +31,7 @@ Day3::Map Day3::testCase() {
   return map;
 }
 
-Day3::Map Day3::readInput() {
+Map Day3::readInput() {
   Map res;
 
   if (std::ifstream inputFile{"Day3/input.txt"}) {
@@ -72,12 +50,12 @@ Day3::Map Day3::readInput() {
   return res;
 }
 
-int Day3::part1(const Map& input) {
+uint64_t Day3::part1(const Map& input) {
   return countTrees(input, 3, 1);
 }
 
-long long Day3::part2(const Map& input) {
-  long long acc = countTrees(input, 1, 1);
+uint64_t Day3::part2(const Map& input) {
+  uint64_t acc = countTrees(input, 1, 1);
   acc *= countTrees(input, 3, 1);
   acc *= countTrees(input, 5, 1);
   acc *= countTrees(input, 7, 1);
@@ -98,6 +76,6 @@ int Day3::countTrees(const Map& input, int stepx, int stepy) {
   return trees;
 }
 
-bool Day3::Map::getPoint(int x, int y) const {
+bool Map::getPoint(int x, int y) const {
   return myMap[y % height][x % width];
 }

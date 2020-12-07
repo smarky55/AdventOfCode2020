@@ -3,7 +3,7 @@
 
 #include <unordered_set>
 
-class Day1 : public Day {
+class Day1 : public DayBase {
 public:
   Day1();
   ~Day1() = default;

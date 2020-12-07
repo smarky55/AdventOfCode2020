@@ -10,10 +10,10 @@
 #include <regex>
 #include <vector>
 
-class Day {
+class DayBase {
 protected:
-  Day(int num);
-  virtual ~Day() = default;
+  DayBase(int num);
+  virtual ~DayBase() = default;
 
   std::vector<std::string> tokenize(const std::string str, const std::regex re);
 
@@ -21,3 +21,47 @@ public:
   virtual void run() = 0;
 };
 
+template <typename InputT>
+class Day : public DayBase {
+public:
+  Day(int num, uint64_t testResult1, uint64_t testResult2);
+
+  void run() override;
+
+protected:
+  uint64_t m_testCaseResult1;
+  uint64_t m_testCaseResult2;
+
+  virtual InputT testCase() = 0;
+  virtual InputT readInput() = 0;
+
+  virtual uint64_t part1(const InputT& input) = 0;
+  virtual uint64_t part2(const InputT& input) = 0;
+};
+
+template<typename InputT>
+inline Day<InputT>::Day(int num, uint64_t testResult1, uint64_t testResult2)
+  : DayBase(num), m_testCaseResult1(testResult1), m_testCaseResult2(testResult2) {}
+
+template<typename InputT>
+inline void Day<InputT>::run() {
+  std::cout << "Part 1" << std::endl;
+  if (part1(testCase()) != m_testCaseResult1) {
+    std::cout << "Test case failed" << std::endl;
+    return;
+  } else {
+    std::cout << "Test case passed!" << std::endl;
+  }
+
+  std::cout << "Answer: " << part1(readInput()) << std::endl;
+
+  std::cout << "Part 2" << std::endl;
+  if (part2(testCase()) != m_testCaseResult2) {
+    std::cout << "Test case failed" << std::endl;
+    return;
+  } else {
+    std::cout << "Test case passed!" << std::endl;
+  }
+
+  std::cout << "Answer: " << part2(readInput()) << std::endl;
+}

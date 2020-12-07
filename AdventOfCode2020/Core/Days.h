@@ -6,8 +6,8 @@
 
 #include <map>
 
-class Day;
+class DayBase;
 
-std::map<int, Day*>& getDays();
+std::map<int, DayBase*>& getDays();
 
 void runday(int day);

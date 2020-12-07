@@ -2,7 +2,7 @@
 
 #include "Days.h"
 
-Day::Day(int num) {
+DayBase::DayBase(int num) {
   getDays()[num] = this;
 }
 
@@ -15,7 +15,7 @@ Day::Day(int num) {
  * @param re
  * @return std::vector<std::string>
  */
-std::vector<std::string> Day::tokenize(
+std::vector<std::string> DayBase::tokenize(
   const std::string str,
   const std::regex re) {
   std::sregex_token_iterator it{str.begin(),

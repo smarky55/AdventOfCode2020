@@ -2,8 +2,8 @@
 
 #include "Day.h"
 
-std::map<int, Day*>& getDays() {
-  static std::map<int, Day*> s_days;
+std::map<int, DayBase*>& getDays() {
+  static std::map<int, DayBase*> s_days;
   return s_days;
 }
 
