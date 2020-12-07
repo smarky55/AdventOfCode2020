@@ -3,14 +3,18 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 #pragma once
+#include <string>
+#include <regex>
+#include <vector>
 
 class Day {
 protected:
   Day(int num);
   virtual ~Day() = default;
 
+  std::vector<std::string> tokenize(const std::string str, const std::regex re);
+
 public:
   virtual void run() = 0;
-
 };
 

@@ -2,8 +2,13 @@
 
 #include "Day.h"
 
+std::map<int, Day*>& getDays() {
+  static std::map<int, Day*> s_days;
+  return s_days;
+}
+
 void runday(int day) {
-  if (s_days.count(day)) {
-    s_days.at(day)->run();
+  if (getDays().count(day)) {
+    getDays().at(day)->run();
   }
 }

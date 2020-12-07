@@ -8,6 +8,6 @@
 
 class Day;
 
-static std::map<int, Day*> s_days;
+std::map<int, Day*>& getDays();
 
 void runday(int day);
