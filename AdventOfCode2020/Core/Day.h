@@ -33,6 +33,7 @@ protected:
   uint64_t m_testCaseResult2;
 
   virtual InputT testCase() = 0;
+  virtual InputT testCase2();
   virtual InputT readInput() = 0;
 
   virtual uint64_t part1(const InputT& input) = 0;
@@ -64,4 +65,9 @@ inline void Day<InputT>::run() {
   }
 
   std::cout << "Answer: " << part2(readInput()) << std::endl;
+}
+
+template<typename InputT>
+inline InputT Day<InputT>::testCase2() {
+  return testCase();
 }
