@@ -57,7 +57,7 @@ inline void Day<InputT>::run() {
   std::cout << "Answer: " << part1(readInput()) << std::endl;
 
   std::cout << "Part 2" << std::endl;
-  if (part2(testCase()) != m_testCaseResult2) {
+  if (part2(testCase2()) != m_testCaseResult2) {
     std::cout << "Test case failed" << std::endl;
     return;
   } else {
